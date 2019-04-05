@@ -7,7 +7,8 @@ class PlacesController < ApplicationController
     @markers = @places.map do |place|
       {
         lat: place.latitude,
-        lng: place.longitude
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: 'infowindow', locals: { place: place })
       }
     end
   end
